@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planos</title>
+    <title>Turismo</title>
     <link rel="stylesheet" href="/frontend/style.css">
 </head>
 <body>
@@ -12,42 +12,46 @@
         <a href="turism.html">Turismo</a>
     </nav>
 
-    <h1>Seus planos</h1>
-    <button id="addPlansBtn">Adicionar plano</button>
+    <h1>Opções de Turismo Cadastradas</h1>
+    <button id="addTurismBtn">Adicionar Turismo</button>
 
-    <table id="plansTable">
+    <table id="turismTable">
         <thead>
             <tr>
                 <th>Nome</th>
-                <th>Ações</th>
+                <th>País</th>
+                <th>Cidade</th>
                 <th>Preço</th>
             </tr>
         </thead>
         <tbody>
-            <!-- Os usuários serão listados aqui via JS -->
+            <!-- As plantações serão listadas aqui via JS -->
         </tbody>
     </table>
 
-    <!-- Modal para adicionar/editar usuário -->
-    <div id="plansModal" class="modal">
+    <!-- Modal para adicionar/editar plantação -->
+    <div id="turismModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2 id="modalTitle">Adicionar Plano</h2>
-            <form id="plansForm">
+            <h2 id="modalTitleTurism">Adicionar Turismo</h2>
+            <form id="turismForm">
                 <label for="name">Nome:</label>
                 <input type="text" id="name" name="name" required>
 
-                <label for="action">Ação:</label>
-                <input type="text" id="action" name="action" required>
+                <label for="country">País:</label>
+                <input type="text" id="country" name="country" required>
+
+                <label for="city">Cidade:</label>
+                <input type="text" id="city" name="city" required>
 
                 <label for="price">Preço:</label>
                 <input type="number" id="price" name="price" required>
 
-                <button type="submit" id="saveUserBtn">Salvar</button>
+                <button type="submit" id="saveTurismBtn">Salvar</button>
             </form>
         </div>
     </div>
 
-    <script src="js/plans.js"></script>
+    <script src="js/turism.js"></script>
 </body>
 </html>

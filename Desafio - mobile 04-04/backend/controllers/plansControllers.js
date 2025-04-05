@@ -3,8 +3,8 @@ const Plans = require('../models/plans');
 // Criar um novo plano
 exports.createPlans = async (req, res) => {
     try {
-        const { action, price, responsible } = req.body;
-        const plans = new Plans({ action, price, responsible });
+        const {name, action, price, responsible } = req.body;
+        const plans = new Plans({name,action,price, responsible });
         await plans.save();
         res.status(201).json(plans);
     } catch (err) {
@@ -39,11 +39,11 @@ exports.getPlansById = async (req, res) => {
 exports.updatePlans = async (req, res) => {
     try {
         const { id } = req.params;
-        const { action, price, responsible } = req.body;
+        const {name,action,price, responsible } = req.body;
 
         const updatedPlan = await Plans.findByIdAndUpdate(
             id,
-            { action, price, responsible },
+            {name, action, price, responsible },
             { new: true }
         );
 
@@ -64,9 +64,8 @@ exports.deletePlans = async (req, res) => {
 
         const deletedPlan = await Plans.findByIdAndDelete(id);
 
-        if (!deletedPlan) {
+        if (!deletedPlan)
             return res.status(404).json({ message: 'Plano não encontrado' });
-        }
 
         res.status(200).json({ message: 'Plano deletado com sucesso' });
     } catch (err) {

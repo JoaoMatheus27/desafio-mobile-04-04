@@ -3,7 +3,9 @@ const router = express.Router();
 const {
     createPlans,
     getPlans, 
-    getPlansById 
+    getPlansById, 
+    deletePlans,
+    updatePlans
 } = require ('../controllers/plansControllers');
 
 
@@ -11,6 +13,8 @@ const {
 router.post('/', createPlans);
 router.get('/', getPlans);
 router.get('/:id', getPlansById);
+router.put('/:id', updatePlans);
+router.delete('/:id',deletePlans);
 
 
 module.exports = router;
