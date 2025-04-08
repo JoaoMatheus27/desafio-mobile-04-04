@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: lightgoldenrodyellow;
 }
 
 h1 {
@@ -26,19 +27,23 @@ th, td {
 
 button {
     padding: 10px 15px;
-    background-color: #4CAF50;
+    background-color: #af4c4c;
     color: white;
     border: none;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #a04545;
+}
+
+#addPlansBtn{
+    align-items: center;
 }
 
 /* Menu de navegação */
 .navbar {
-    background-color: #333;
+    background-color: #7e4505;
     overflow: hidden;
 }
 

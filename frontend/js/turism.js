@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalTitleTurism = document.getElementById('modalTitleTurism');
     let editTurismId = null;
 
-    // Função para carregar usuários
+    // Função para carregar turismos
     const loadTurism = async () => {
         const response = await fetch(`${apiUrl}`);
         const turism = await response.json();
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
     
-    // Função para adicionar usuário
+    // Função para adicionar turismo
     const addTurism = async (turism) => {
         try {
             const response = await fetch(`${apiUrl}`, {
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Função para atualizar usuário
+    // Função para atualizar turismo
     const updateTurism = async (id, turism) => {
         await fetch(`${apiUrl}/${id}`, {
             method: 'PUT',
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loadTurism();
     };
 
-    // Função para deletar usuário
+    // Função para deletar turismo
     const deleteTurism = async (id) => {
         await fetch(`${apiUrl}/${id}`, {
             method: 'DELETE'
@@ -80,12 +80,12 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
 
-    // Abrir modal para editar usuário
+    // Abrir modal para editar turismo
     const openEditTurismModal = async (id) => {
         editTurismId = id;
         modalTitleTurism.innerText = 'Editar Turismo';
 
-        // Buscar os dados do usuário para preencher o modal
+        // Buscar os dados do turismo para preencher o modal
         const response = await fetch(`${apiUrl}/${id}`);
         const turism = await response.json();
 
@@ -97,10 +97,10 @@ document.addEventListener('DOMContentLoaded', () => {
         turismModal.style.display = 'block';
     };
 
-    // Abrir modal para adicionar novo usuário
+    // Abrir modal para adicionar novo turismo
     const openAddTurismModal = () => {
         editTurismId = null;
-        modalTitleTurism.innerText = 'Adicionar Usuário';
+        modalTitleTurism.innerText = 'Adicionar Turismo';
         turismForm.reset();
         turismModal.style.display = 'block';
     };
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loadTurism();
     });
 
-    // Inicializando o carregamento de usuários e eventos
+    // Inicializando o carregamento de turismos e eventos
     addTurismBtn.addEventListener('click', openAddTurismModal);
     loadTurism();
 });

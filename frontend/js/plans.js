@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalTitle = document.getElementById('modalTitle');
     let editPlansId = null;
 
-    // Função para carregar usuários
+    // Função para carregar plaos
     const loadPlans = async () => {
         const response = await fetch(`${apiUrl}`);
         const plans = await response.json();
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
     
-    // Função para adicionar usuário
+    // Função para adicionar plano
     const addPlans = async (plans) => {
         try {
             const response = await fetch(`${apiUrl}`, {
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Função para atualizar usuário
+    // Função para atualizar plano
     const updatePlans = async (id, plans) => {
         await fetch(`${apiUrl}/${id}`, {
             method: 'PUT',
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loadPlans();
     };
 
-    // Função para deletar usuário
+    // Função para deletar plano
     const deletePlans = async (id) => {
         await fetch(`${apiUrl}/${id}`, {
             method: 'DELETE'
@@ -79,26 +79,25 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
 
-    // Abrir modal para editar usuário
+    // Abrir modal para editar plano
     const openEditPlansModal = async (id) => {
         editPlansId = id;
-        modalTitle.innerText = 'Editar Usuário';
+        modalTitle.innerText = 'Editar Planos';
 
-        // Buscar os dados do usuário para preencher o modal
+        // Buscar os dados do plano para preencher o modal
         const response = await fetch(`${apiUrl}/${id}`);
         const plans = await response.json();
 
         document.getElementById('name').value = plans.name;
         document.getElementById('action').value = plans.action;
-        document.getElementById('price').value = plans.price; // Não exibir senha
-
+        document.getElementById('price').value = plans.price; 
         plansModal.style.display = 'block';
     };
 
-    // Abrir modal para adicionar novo usuário
+    // Abrir modal para adicionar novo plano
     const openAddPlansModal = () => {
         editPlansId = null;
-        modalTitle.innerText = 'Adicionar Usuário';
+        modalTitle.innerText = 'Adicionar Planos';
         plansForm.reset();
         plansModal.style.display = 'block';
     };
@@ -134,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loadPlans();
     });
 
-    // Inicializando o carregamento de usuários e eventos
+    // Inicializando o carregamento de planos e eventos
     addPlansBtn.addEventListener('click', openAddPlansModal);
     loadPlans();
 });
